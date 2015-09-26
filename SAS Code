@@ -1,0 +1,50 @@
+# Beginners-SAS-Module
+This is helpful for anyone who is just starting learning the SAS 
+Scatter Plot 
+
+Scatter Plot
+proc sgplot data=sashelp.CARS noautolegend;
+**title="Vehicle Statisitcs";
+scatter x=Horsepower y=MPG_City/transparency =0.00 name='Scatter';
+xaxis grid;
+yaxis grid;
+run; 
+
+Summary Statisitcs
+
+proc means data=sashelp.cars mean std min max n ;
+var MPG_Highway ;
+run;
+
+
+Histogram
+proc univariate data=sashelp.cars noprint;
+var weight;
+histogram weight ;
+run; 
+
+
+
+Distribution Analysis 
+
+proc univariate data=sashelp.cars noprint;
+histogram weight/normal kernel ;
+inset mean std n/position =ne;
+
+probplot weight/normal (mu=est sigma=est);
+inset meAN std n/position =nw;
+run;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
